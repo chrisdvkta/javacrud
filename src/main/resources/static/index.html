@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo CRUD - Home</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <h1><a href="/index.html">Todo CRUD</a></h1>
+      <nav>
+        <a href="/index.html" class="nav-link active">Home</a>
+        <a href="#" onclick="openModal('todos')" class="nav-link">Todos</a>
+        <a href="#" onclick="openModal('auth')" class="nav-link">Auth</a>
+      </nav>
+      <div class="user-info" id="user-info">Checking session...</div>
+    </div>
+  </header>
+
+  <main class="home-container">
+    <section class="hero">
+      <h2>Welcome to Todo CRUD</h2>
+      <p class="hero-text">Manage your tasks efficiently with our modern CRUD application</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal('auth')">Get Started</button>
+        <button class="btn-secondary" onclick="openModal('todos')">View Todos</button>
+      </div>
+    </section>
+
+    <section class="features">
+      <h3>Features</h3>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4><span>🔐</span> Secure Authentication</h4>
+          <p>Register and login securely with session management</p>
+        </div>
+        <div class="feature-card">
+          <h4><span>✓</span> Complete CRUD</h4>
+          <p>Create, read, update, and delete your todos</p>
+        </div>
+        <div class="feature-card">
+          <h4><span>📱</span> Responsive Design</h4>
+          <p>Works seamlessly on all devices</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Modal for Auth -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <header>
+        <h2>Authentication</h2>
+        <button class="close-btn" onclick="closeModal('auth')">×</button>
+      </header>
+      <form id="auth-form">
+        <label>
+          Username
+          <input id="username" name="username" autocomplete="username" required />
+        </label>
+        <label>
+          Password
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <div class="row">
+          <button type="button" id="register-btn">Register</button>
+          <button type="button" id="login-btn">Login</button>
+          <button type="button" id="me-btn" class="small">Who am I?</button>
+          <button type="button" id="logout-btn" class="small danger">Logout</button>
+        </div>
+      </form>
+      <div class="status" id="auth-status"></div>
+    </div>
+  </div>
+
+  <!-- Modal for Todos -->
+  <div id="todos-modal" class="modal">
+    <div class="modal-content large">
+      <header>
+        <h2>My Todos</h2>
+        <button class="close-btn" onclick="closeModal('todos')">×</button>
+      </header>
+      <section class="card">
+        <h3>Create / Update Todo</h3>
+        <form id="todo-form">
+          <label>
+            Title
+            <input id="todo-title" name="title" required />
+          </label>
+          <label>
+            Description
+            <textarea id="todo-desc" name="description"></textarea>
+          </label>
+          <label>
+            Completed
+            <input id="todo-completed" name="completed" type="checkbox" />
+          </label>
+          <div class="row">
+            <button type="button" id="create-btn">Create</button>
+            <button type="button" id="save-btn" class="small">Save Update</button>
+            <span class="muted" id="edit-hint">No item selected</span>
+          </div>
+        </form>
+        <div class="status" id="todo-status"></div>
+      </section>
+
+      <section class="card">
+        <h3>Todos</h3>
+        <div class="row">
+          <button type="button" id="refresh-btn" class="small">Refresh</button>
+        </div>
+        <div class="todo-list" id="todo-list"></div>
+      </section>
+    </div>
+  </div>
+  
+  <script src="/js/common.js"></script>
+  <script src="/js/home.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/todos.js"></script>
+</body>
+</html>

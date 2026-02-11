@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Auth | Todo CRUD</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Authentication</h1>
+        <div class="muted">Register or login to start managing todos</div>
+      </div>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/auth.html">Auth</a>
+        <a href="/todos.html">Todos</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <h2>Auth</h2>
+      <form id="auth-form">
+        <label>
+          Username
+          <input id="username" name="username" autocomplete="username" required />
+        </label>
+        <label>
+          Password
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <div class="row">
+          <button type="button" id="register-btn">Register</button>
+          <button type="button" id="login-btn">Login</button>
+          <button type="button" id="me-btn" class="small">Who am I?</button>
+          <button type="button" id="logout-btn" class="small danger">Logout</button>
+        </div>
+      </form>
+      <div class="status" id="auth-status"></div>
+    </section>
+  </main>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
