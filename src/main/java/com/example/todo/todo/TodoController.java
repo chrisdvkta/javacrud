@@ -39,7 +39,7 @@ public class TodoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TodoResponse> update(@PathVariable Long id, @Valid @RequestBody TodoRequest request, Authentication authentication) {
+    public ResponseEntity<TodoResponse> update(@PathVariable("id") Long id, @Valid @RequestBody TodoRequest request, Authentication authentication) {
         User user = currentUser(authentication);
         Optional<Todo> optional = todoRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getOwner().getId().equals(user.getId())) {
@@ -54,7 +54,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id, Authentication authentication) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id, Authentication authentication) {
         User user = currentUser(authentication);
         Optional<Todo> optional = todoRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getOwner().getId().equals(user.getId())) {
